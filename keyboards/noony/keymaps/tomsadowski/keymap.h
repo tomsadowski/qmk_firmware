@@ -1,16 +1,12 @@
-#include "combo_town.h"
-#include "process_combo.h"
 #include QMK_KEYBOARD_H
+#include "process_combo.h"
 #include "keycodes.h"
 #include "quantum_keycodes.h"
+#include "release_gate.h"
 
 // constants
 #define SHORT_COMBO_TERM 6
 
-bool press_caps_on(void);
-bool press_alpha_on_caps_off(void);
-
-// keycodes
 enum my_keycodes {
     CAPS_ON = SAFE_RANGE,
     ALPHA_ON_CAPS_OFF,
@@ -39,15 +35,19 @@ enum combos {
                     FOUR_SPACE_COMBO_L,                        TAB_COMBO_R,
                     SHIFT_COMBO_L,                             SHIFT_COMBO_R,
                     CAPS_COMBO_L,                              ALPHA_COMBO_R,
+
   /*   |XXX|   |___|   |___|   |XXX|   |___|      |___|   |XXX|   |___|   |___|   |XXX|   */
                     ALT_COMBO_L,                               ALT_COMBO_R,
                     CONTROL_COMBO_L,                           CONTROL_COMBO_R,
                     LEFT_MOUSE_COMBO_L,                        MOUSE_COMBO_R,
+
   /*   |XXX|   |___|   |___|   |___|   |XXX|      |XXX|   |___|   |___|   |___|   |XXX|   */
                     RELEASE_GATE_COMBO_L,                      RELEASE_GATE_COMBO_R,
                     LEFT_NUMBER_COMBO_L,                       NUMBER_COMBO_R,
+
   /*   |111|   |___|   |___|   |222|   |___|      |___|   |222|   |___|   |___|   |111|   */
                     GUI_COMBO_L,                               GUI_COMBO_R,
+
   /*   |___|   |___|   |___|   |111|   |222|      |222|   |111|   |___|   |___|   |___|   */
                     ESCAPE_COMBO_L,                            ENTER_COMBO_R,
 };
@@ -77,7 +77,7 @@ const uint16_t PROGMEM       number_combo_r[] = {KC_DOT, KC_N,     COMBO_END};
 
 combo_t key_combos[] = {
                         //    |___|   |XXX|   |XXX|   |___|   |___|    ------------
-                        [FOUR_SPACE_COMBO_L] = COMBO(  four_space_combo_l, FOUR_SPACE           ),
+                         [FOUR_SPACE_COMBO_L] = COMBO(four_space_combo_l, FOUR_SPACE             ),
                               [SHIFT_COMBO_L] = COMBO(      shift_combo_l, KC_LEFT_SHIFT         ),
                                [CAPS_COMBO_L] = COMBO(       caps_combo_l, CAPS_ON               ),
 
@@ -119,7 +119,7 @@ combo_t key_combos[] = {
 
 
                        //------------    |222|   |111|   |___|   |___|   |___|
-                            [ENTER_COMBO_R]   = COMBO(       enter_combo_r, KC_ENTER             ),
+                              [ENTER_COMBO_R] = COMBO(       enter_combo_r, KC_ENTER             ),
 };
 
 // layout
@@ -175,3 +175,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F11,  KC_F12,  KC_F13,  KC_F14,  _______,         _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,
                                                _______, _______,         KC_BTN1, KC_BTN2),
 };
+
+bool press_caps_on(void);
+bool press_alpha_on_caps_off(void);

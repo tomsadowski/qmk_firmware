@@ -91,8 +91,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 return release_key_with_release_gate(&release_gate, keycode);
 
         case FOUR_SPACE:
-            if (record->event.pressed)
-                SEND_STRING("    ");
+            if (record->event.pressed) {
+                //SEND_STRING("    ");
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+            }
             return true;
 
         case CAPS_ON:
@@ -116,10 +121,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         default: return true;
     }
 }
+
 bool press_caps_on() {
     caps_word_on();
     return false;
 }
+
 bool press_alpha_on_caps_off() {
     caps_word_off();
     if (!in_momentary_layer)
