@@ -25,3 +25,5 @@ bool release_release_gate(release_gate_t*);
 bool press_key_with_release_gate(release_gate_t*, uint16_t);
 
 bool release_key_with_release_gate(release_gate_t*, uint16_t);
+
+void close_release_gate(release_gate_t*);

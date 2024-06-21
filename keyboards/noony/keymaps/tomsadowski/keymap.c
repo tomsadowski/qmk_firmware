@@ -7,7 +7,7 @@
 bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode, keyrecord_t* record) {
     if (layer_state_is(GAME_LAYER)) {
         switch (combo_index) {
-            case ALPHA_COMBO_R:
+            case HOME_COMBO_R:
             case LEFT_MOUSE_COMBO_L:
             case MOUSE_COMBO_R:
             case LEFT_NUMBER_COMBO_L:
@@ -90,25 +90,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             else
                 return release_key_with_release_gate(&release_gate, keycode);
 
-        case FOUR_SPACE:
-            if (record->event.pressed) {
-                //SEND_STRING("    ");
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
-            }
-            return true;
-
-        case CAPS_ON:
+        case LAYOUT_HOME:
             if (record->event.pressed)
-                return press_caps_on();
-            else
-                return false;
-
-        case ALPHA_ON_CAPS_OFF:
-            if (record->event.pressed)
-                return press_alpha_on_caps_off();
+                return press_home();
             else
                 return false;
 
@@ -117,6 +101,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                 return press_release_gate(&release_gate);
             else
                 return release_release_gate(&release_gate);
+
+        case CAPS_ON:
+            if (record->event.pressed)
+                return press_caps_on();
+            else
+                return false;
+
+        case FOUR_SPACE:
+            if (record->event.pressed) {
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+                tap_code(KC_SPC);
+            }
+            return true;
 
         default: return true;
     }
@@ -127,8 +126,9 @@ bool press_caps_on() {
     return false;
 }
 
-bool press_alpha_on_caps_off() {
+bool press_home() {
     caps_word_off();
+    close_release_gate(&release_gate);
     if (!in_momentary_layer)
         layer_move(ALPHA_LAYER);
     return false;
