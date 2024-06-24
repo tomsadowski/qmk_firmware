@@ -4,6 +4,7 @@
 
 typedef enum {
     BLOCK,
+    DECIDE,
     WATCH,
     LEND,
     SUSPEND,
@@ -13,8 +14,6 @@ typedef enum {
 typedef struct {
     release_gate_state_t state;
     uint16_t switch_code;
-    uint16_t blocked_codes[MAX_BLOCK];
-    unsigned short size;
 } release_gate_t;
 
 

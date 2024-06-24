@@ -7,7 +7,7 @@
 // constants
 #define SHORT_COMBO_TERM 6
 
-enum my_keycodes {
+enum custom_keycodes {
     LAYOUT_HOME = SAFE_RANGE,
     RELEASE_GATE,
     CAPS_ON,
@@ -53,7 +53,7 @@ enum combos {
                     ESCAPE_COMBO_L,                            ENTER_COMBO_R,
 };
 
-static release_gate_t release_gate = {NONE, KC_NO, {0}, 0};
+static release_gate_t release_gate = {NONE, KC_NO};
 
 const uint16_t PROGMEM   four_space_combo_l[] = {KC_C,    KC_H,     COMBO_END};
 const uint16_t PROGMEM        shift_combo_l[] = {KC_S,    KC_R,     COMBO_END};

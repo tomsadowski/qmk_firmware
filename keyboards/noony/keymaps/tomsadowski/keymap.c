@@ -72,7 +72,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t* record) {
     else
         return false;
 }
-// common symbols like apostrophe can be accessed without breaking flow
+// common symbols can be accessed without breaking flow
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t* record) {
     if (LT(MOMENTARY_NUMBER_LAYER, KC_SPC))
         return true;
@@ -110,10 +110,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case FOUR_SPACE:
             if (record->event.pressed) {
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
-                tap_code(KC_SPC);
+                SEND_STRING("    ");
             }
             return true;
 
