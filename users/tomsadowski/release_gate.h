@@ -13,12 +13,12 @@ typedef struct {
     uint16_t last_pressed;
 } release_gate_t;
 
-void reset_release_gate(void);
+void reset_release_gate(release_gate_t*);
 
-bool press_release_gate(void);
+bool press_release_gate(release_gate_t*);
 
-bool release_release_gate(void);
+bool release_release_gate(release_gate_t*);
 
-bool press_key_with_release_gate(uint16_t);
+bool press_key_with_release_gate(release_gate_t*, uint16_t);
 
-bool release_key_with_release_gate(uint16_t);
+bool release_key_with_release_gate(release_gate_t*, uint16_t);
