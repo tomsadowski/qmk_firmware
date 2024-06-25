@@ -7,13 +7,6 @@
 // constants
 #define SHORT_COMBO_TERM 6
 
-enum custom_keycodes {
-    LAYOUT_HOME = SAFE_RANGE,
-    RELEASE_GATE,
-    CAPS_ON,
-    FOUR_SPACE
-};
-
 // layers
 enum layers {
     ALPHA_LAYER,

@@ -86,9 +86,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             if (release_gate.state == NONE)
                 return true;
             else if (record->event.pressed)
-                return press_key_with_release_gate(&release_gate, keycode);
+                return press_key_with_release_gate(keycode);
             else
-                return release_key_with_release_gate(&release_gate, keycode);
+                return release_key_with_release_gate(keycode);
 
         case LAYOUT_HOME:
             if (record->event.pressed)
@@ -98,9 +98,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
         case RELEASE_GATE:
             if (record->event.pressed)
-                return press_release_gate(&release_gate);
+                return press_release_gate();
             else
-                return release_release_gate(&release_gate);
+                return release_release_gate();
 
         case CAPS_ON:
             if (record->event.pressed)
@@ -125,7 +125,7 @@ bool press_caps_on() {
 
 bool press_home() {
     caps_word_off();
-    close_release_gate(&release_gate);
+    reset_release_gate();
     if (!in_momentary_layer)
         layer_move(ALPHA_LAYER);
     return false;
