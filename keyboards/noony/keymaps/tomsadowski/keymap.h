@@ -14,7 +14,8 @@ enum layers {
     MOUSE_LAYER,
     LEFT_NUMBER_LAYER,
     LEFT_MOUSE_LAYER,
-    GAME_LAYER,
+    GAME3D_LAYER,
+    GAME2D_LAYER,
     MOMENTARY_ALPHA_LAYER,
     MOMENTARY_MOUSEALPHA_LAYER,
     MOMENTARY_NUMBER_LAYER,
@@ -37,7 +38,7 @@ enum combos {
   /*   |XXX|   |___|   |___|   |___|   |XXX|      |XXX|   |___|   |___|   |___|   |XXX|   */
                     RELEASE_GATE_COMBO_L,                      RELEASE_GATE_COMBO_R,
                     LEFT_NUMBER_COMBO_L,                       NUMBER_COMBO_R,
-                                                               GAME_COMBO_R,
+                    GAME3D_COMBO_L                             GAME2D_COMBO_R,
 
   /*   |111|   |___|   |___|   |222|   |___|      |___|   |222|   |___|   |___|   |111|   */
                     GUI_COMBO_L,                               GUI_COMBO_R,
@@ -58,6 +59,7 @@ const uint16_t PROGMEM          gui_combo_l[] = {KC_T,    KC_X,     COMBO_END};
 const uint16_t PROGMEM       escape_combo_l[] = {KC_B,    KC_COMMA, COMBO_END};
 const uint16_t PROGMEM release_gate_combo_l[] = {KC_X,    KC_Q,     COMBO_END};
 const uint16_t PROGMEM  left_number_combo_l[] = {KC_A,    KC_COMM,  COMBO_END};
+const uint16_t PROGMEM       game3d_combo_l[] = {KC_V,    KC_QUOT,  COMBO_END};
 const uint16_t PROGMEM          tab_combo_r[] = {KC_W,    KC_P,     COMBO_END};
 const uint16_t PROGMEM        shift_combo_r[] = {KC_I,    KC_O,     COMBO_END};
 const uint16_t PROGMEM         home_combo_r[] = {KC_M,    KC_G,     COMBO_END};
@@ -68,7 +70,7 @@ const uint16_t PROGMEM          gui_combo_r[] = {KC_E,    KC_J,     COMBO_END};
 const uint16_t PROGMEM        enter_combo_r[] = {KC_DOT,  KC_Y,     COMBO_END};
 const uint16_t PROGMEM release_gate_combo_r[] = {KC_Z,    KC_J,     COMBO_END};
 const uint16_t PROGMEM       number_combo_r[] = {KC_DOT,  KC_N,     COMBO_END};
-const uint16_t PROGMEM         game_combo_r[] = {KC_SCLN, KC_K,     COMBO_END};
+const uint16_t PROGMEM       game2d_combo_r[] = {KC_SCLN, KC_K,     COMBO_END};
 
 combo_t key_combos[] = {
                         //    |___|   |XXX|   |XXX|   |___|   |___|    ------------
@@ -84,6 +86,7 @@ combo_t key_combos[] = {
                        //    |XXX|   |___|   |___|   |___|   |XXX|    ------------
                        [RELEASE_GATE_COMBO_L] = COMBO(release_gate_combo_l, RELEASE_GATE         ),
                         [LEFT_NUMBER_COMBO_L] = COMBO( left_number_combo_l, TO(LEFT_NUMBER_LAYER)),
+                             [GAME3D_COMBO_L] = COMBO(      game3d_combo_l, TO(GAME3D_LAYER)     ),
 
 
                        //    |111|   |___|   |___|   |222|   |___|    ------------
@@ -107,7 +110,7 @@ combo_t key_combos[] = {
                        //------------    |XXX|   |___|   |___|   |___|   |XXX|
                        [RELEASE_GATE_COMBO_R] = COMBO(release_gate_combo_r, RELEASE_GATE         ),
                              [NUMBER_COMBO_R] = COMBO(      number_combo_r, TO(NUMBER_LAYER)     ),
-                               [GAME_COMBO_R] = COMBO(        game_combo_r, TO(GAME_LAYER)       ),
+                             [GAME2D_COMBO_R] = COMBO(      game2d_combo_r, TO(GAME2D_LAYER)     ),
 
 
                        //------------    |___|   |222|   |___|   |___|   |111|
@@ -145,7 +148,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R, _______,         _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_PSCR,
         KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R, _______,         _______, KC_F11,  KC_F12,  KC_F13,  KC_F14,
                                    KC_BTN2, KC_BTN1,         KC_SPC,  _______),
-    [GAME_LAYER] = LAYOUT_split_3x5_2( // GAME: Base sans combos and hold-tap features
+    [GAME2D_LAYER] = LAYOUT_split_3x5_2( // GAME: Base sans combos and hold-tap features
+        _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______,         _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,
+        _______, _______, _______, _______, _______,         _______, _______, KC_WH_D, KC_WH_U, _______,
+                                   _______, KC_SPC,          KC_BTN1, KC_BTN2),
+    [GAME2D_LAYER] = LAYOUT_split_3x5_2( // GAME: Base sans combos and hold-tap features
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______,         _______, _______, _______, _______, _______,

@@ -5,7 +5,7 @@
 
 // Exclude some combos from game layers
 bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode, keyrecord_t* record) {
-    if (layer_state_is(GAME_LAYER)) {
+    if (layer_state_is(GAME2D_LAYER) || layer_state_is(GAME3D_LAYER)) {
         switch (combo_index) {
             case HOME_COMBO_R:
             case LEFT_MOUSE_COMBO_L:
@@ -23,7 +23,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
 
 // Shorten combo term when in game layers
 uint16_t get_combo_term(uint16_t index, combo_t* combo) {
-    if (layer_state_is(GAME_LAYER))
+    if (layer_state_is(GAME2D_LAYER) || layer_state_is(GAME3D_LAYER))
         return SHORT_COMBO_TERM;
     else
         return COMBO_TERM;
@@ -35,7 +35,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case ALPHA_LAYER:
             in_momentary_layer = false;
             break;
-        case MOUSE_LAYER ... GAME_LAYER:
+        case MOUSE_LAYER ... GAME3D_LAYER:
             in_momentary_layer = false;
             caps_word_off();
             break;
