@@ -38,7 +38,7 @@ enum combos {
   /*   |XXX|   |___|   |___|   |___|   |XXX|      |XXX|   |___|   |___|   |___|   |XXX|   */
                     RELEASE_GATE_COMBO_L,                      RELEASE_GATE_COMBO_R,
                     LEFT_NUMBER_COMBO_L,                       NUMBER_COMBO_R,
-                    GAME3D_COMBO_L                             GAME2D_COMBO_R,
+                    GAME3D_COMBO_L,                            GAME2D_COMBO_R,
 
   /*   |111|   |___|   |___|   |222|   |___|      |___|   |222|   |___|   |___|   |111|   */
                     GUI_COMBO_L,                               GUI_COMBO_R,
