@@ -50,7 +50,7 @@ bool release_key_with_release_gate(release_gate_t* release_gate, uint16_t keycod
                 reset_release_gate(release_gate);
             else
                 release_gate->state = PASS;
-            break;
+            return false;
         case BLOCK:
             if (release_gate->last_pressed != keycode)
                 reset_release_gate(release_gate);
