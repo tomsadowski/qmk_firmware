@@ -8,7 +8,7 @@ There are 3 layers: Alpha Layer, Mouse Layer, and Number Layer. From any of thos
 
 ---  
 
-![mouse_layer_graph](/doc/mouse_graph.jpg)  
+![mouse_layer_graph](doc/mouse_graph.jpg)  
 
 Note: Since holding down the left-click button is a common use case, you must first access the Alpha Layer with the left thumb before accessing the Number Layer with the right thumb.  
 
