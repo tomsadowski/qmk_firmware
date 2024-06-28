@@ -26,7 +26,17 @@
     },
     "split": {
         "enabled": true,
-        "soft_serial_pin": "GP1"
+        "soft_serial_pin": "GP1",
+        "matrix_pins": {
+            "right": {
+                "direct": [
+                    ["GP3",  "GP2", "GP0",  "GP29", "GP28"],
+                    ["GP7",  "GP4", "GP5",  "GP6",  "GP27"],
+                    ["GP8",  "GP9", "GP26", "GP22", "GP20"],
+                    ["GP23", "GP21", null,  null,   null]
+                ]
+            }
+        }
     },
     "layouts": {
         "LAYOUT_split_3x5_2": {
