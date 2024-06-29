@@ -1,7 +1,7 @@
 {
     "manufacturer": "tom sadowski",
     "url": "https://github.com/tomsadowski",
-    "keyboard_name": "pearbear_v1",
+    "keyboard_name": "god_emperor_v1",
     "maintainer": "tomsadowski",
     "development_board": "kb2040",
     "usb": {
@@ -21,10 +21,10 @@
     },
     "matrix_pins": {
         "direct": [
-            ["GP3",  "GP2", "GP0",  "GP29", "GP28"],
-            ["GP7",  "GP4", "GP5",  "GP6",  "GP27"],
-            ["GP8",  "GP9", "GP26", "GP18", "GP20"],
-            ["GP19", "GP10", null,   null,   null]
+            ["GP26",  "GP27", "GP28",  "GP29", "GP0"],
+            ["GP18",  "GP20", "GP19",  "GP10",  "GP2"],
+            ["GP3",  "GP4", "GP5", "GP6", "GP7"],
+            ["GP8", "GP9", null,   null,   null]
         ]
     },
     "split": {
@@ -33,10 +33,10 @@
         "matrix_pins": {
             "right": {
                 "direct": [
-		    ["GP28", "GP29", "GP0",  "GP2", "GP3"],
-		    ["GP27", "GP6",  "GP5",  "GP4", "GP7"],
-		    ["GP20", "GP18", "GP26", "GP9", "GP8"],
-		    ["GP10", "GP19",  null,   null,  null]
+            ["GP0",  "GP29", "GP28",  "GP27", "GP26"],
+            ["GP2",  "GP10", "GP19",  "GP20",  "GP18"],
+            ["GP7",  "GP6", "GP5", "GP4", "GP3"],
+            ["GP9", "GP8", null,   null,   null]
                 ]
             }
         }
