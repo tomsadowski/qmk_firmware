@@ -19,6 +19,10 @@
     "bootmagic": {
 	"matrix": [4, 4]
     },
+    "ws2812": {
+        "pin": "GP17",
+        "driver": "vendor"
+    },
     "matrix_pins": {
         "direct": [
             ["GP3",  "GP2", "GP0",  "GP29", "GP28"],
