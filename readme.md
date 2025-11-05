@@ -1,36 +1,25 @@
-# Quantum Mechanical Keyboard Firmware
+## pearbear qmk firmware project directory
 
-[![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
-[![Discord](https://img.shields.io/discord/440868230475677696.svg)](https://discord.gg/qmk)
-[![Docs Status](https://img.shields.io/badge/docs-ready-orange.svg)](https://docs.qmk.fm)
-[![GitHub contributors](https://img.shields.io/github/contributors/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/pulse/monthly)
-[![GitHub forks](https://img.shields.io/github/forks/qmk/qmk_firmware.svg?style=social&label=Fork)](https://github.com/qmk/qmk_firmware/)
+This is a fork of the qmk_firmware repo for hosting the pearbear keyboard. All other keyboards have been removed from this fork. If you would like to keep your qmk_firmware repo, simply add the keyboards/pearbear to your keyboards directory.
 
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
+If you have a pearbear and need to flash it, start by referring to the official instructions for installing the qmk framework from the QMK website. Once QMK is installed, continue with the instructions below.
 
-## Documentation
+#### set your config as follows:
+- $: qmk config compile.keyboard=pearbear
+- $: qmk config compile.keymap=tomsadowski
+- $: qmk config flash.keyboard=pearbear
+- $: qmk config flash.keymap=tomsadowski
 
-* [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
+#### compile:   
+- $: qmk compile
 
-The docs are powered by [VitePress](https://vitepress.dev/). They are also viewable offline; see [Previewing the Documentation](https://docs.qmk.fm/#/contributing?id=previewing-the-documentation) for more details.
+#### flash left: 
+- plug USB into left half.
+- $: qmk flash -bl uf2-split-left
+- on the left half, press and hold the Boot Button on the KeyBoar circuit for 6 seconds while tapping the Reset Button 3 times. wait for indication in terminal that flashing is in progress before letting go.
 
-You can request changes by making a fork and opening a [pull request](https://github.com/qmk/qmk_firmware/pulls).
 
-## Supported Keyboards
-
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
-
-The project also includes community support for [lots of other keyboards](/keyboards/).
-
-## Maintainers
-
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
-
-## Official Website
-
-[qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+#### flash right: 
+- plug USB into right half.
+- $: qmk flash -bl uf2-split-right
+- on the right half, press and hold the Boot Button on the KeyBoar circuit for 6 seconds while tapping the Reset Button 3 times. wait for indication in terminal that flashing is in progress before letting go.
